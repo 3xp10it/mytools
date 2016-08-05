@@ -26,6 +26,14 @@ from exp10it import *
 figlet2file("3xp10it","/tmp/figletpic",True)
 time.sleep(1)
 
+try:
+    import readline
+except ImportError:
+    print "Module readline not available."
+else:
+    import rlcompleter
+    readline.parse_and_bind("tab: complete")
+
 import os
 import datetime
 def check_file_has_logo(file_abs_path):
