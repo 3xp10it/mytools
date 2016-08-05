@@ -1,17 +1,17 @@
 #############################################################
-###                                    
-###  mm,            .m   .m,   W       
-### ]""W,           PW   W"W   "   ][  
-###    d['W W`]bWb   W  ][ ][ WW  ]WWW 
-###  ]WW  ]W[ ]P T[  W  ][W][  W   ][  
-###    T[ .W, ][ ][  W  ][ ][  W   ][  
-### ]mmW` d"b ]WmW`.mWm, WmW .mWm, ]bm 
-###  ""` '" "`]["` '"""` '"` '"""`  "" 
-###           ][                       
-###                                    
-###                                                          
+###
+###  mm,            .m   .m,   W
+### ]""W,           PW   W"W   "   ][
+###    d['W W`]bWb   W  ][ ][ WW  ]WWW
+###  ]WW  ]W[ ]P T[  W  ][W][  W   ][
+###    T[ .W, ][ ][  W  ][ ][  W   ][
+### ]mmW` d"b ]WmW`.mWm, WmW .mWm, ]bm
+###  ""` '" "`]["` '"""` '"` '"""`  ""
+###           ][
+###
+###
 ### name: newscript.py
-### function: write new script easily 
+### function: write new script easily
 ### date: 2016-08-05
 ### author: quanyechavshuo
 ### blog: https://3xp10it.github.io
@@ -159,12 +159,11 @@ def main():
         print "please input your remote repository name:)"
         repo_name=raw_input()
         succeed=save2github(file_abs_path,repo_name,function)
-        if(succeed==0):
+        if(succeed==True):
             print "all is done and all is well!!!"
         else:
             print "save2github wrong,check it,maybe your remote repository name input wrong..."
 
 if __name__=='__main__':
     main()
-    #tmp
 
