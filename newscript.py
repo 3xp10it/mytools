@@ -26,13 +26,6 @@ from exp10it import *
 figlet2file("3xp10it","/tmp/figletpic",True)
 time.sleep(1)
 
-try:
-    import readline
-except ImportError:
-    print "Module readline not available."
-else:
-    import rlcompleter
-    readline.parse_and_bind("tab: complete")
 
 import os
 import datetime
@@ -123,7 +116,7 @@ def main():
             date=datetime.date.today()
             author="quanyechavshuo"
             blog="https://3xp10it.github.io"
-            if os.path.basename(file_abs_path)!="newscript.py":
+            if os.path.basename(file_abs_path)!="newscript.py" and "exp10it.py"!=os.path.basename(file_abs_path):
                 insert_code_header_to_file(file_abs_path,function,date,author,blog)
             break
         else:
@@ -172,6 +165,8 @@ def main():
         else:
             print "save2github wrong,check it,maybe your remote repository name input wrong..."
 
+def get_folder_name(folder_path):
+    print os.listdir(folder_path)
+
 if __name__=='__main__':
     main()
-
