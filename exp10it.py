@@ -17,6 +17,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 #upon 4 lines for chinese support
 
+
 import os
 import re
 import random
