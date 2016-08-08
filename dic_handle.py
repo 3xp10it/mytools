@@ -24,7 +24,7 @@ def usage():
 	print "there will be a newfile.txt in the same directory."
 	sys.exit(0)
 def main():
-	if sys.argv[1]!='-f':
+	if len(sys.argv)!='3':
 		usage()
 	file=open(sys.argv[2],"r+")
 	list=file.readlines()
