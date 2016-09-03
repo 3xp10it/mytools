@@ -1,4 +1,20 @@
 #############################################################
+###  #####                  #     ###           
+### #     # #    # #####   ##    #   #  # ##### 
+###       #  #  #  #    # # #   #     # #   #   
+###  #####    ##   #    #   #   #     # #   #   
+###       #   ##   #####    #   #     # #   #   
+### #     #  #  #  #        #    #   #  #   #   
+###  #####  #    # #      #####   ###   #   #   
+###                                             
+###                                                          
+### name: install_tesseract.sh
+### function: auto install tesseract
+### date: 2016-09-03
+### author: quanyechavshuo
+### blog: https://3xp10it.github.io
+#############################################################
+#############################################################
 ### ___ /           _ |  _ \ _) |   
 ###   _ \\ \  / __ \  | |   | | __| 
 ###    ) |`  <  |   | | |   | | |   
@@ -45,10 +61,10 @@ sudo mv -v eng.traineddata /usr/local/share/tessdata/
 #everything is ok,that is to say,if you want to use tesseract directlly to recognize yanzhengma other than 
 #use pytesser to recognize yanzhengma,you don't need to execute below commands
 #these refer from http://www.jinglingshu.org/?p=9281
-pip install pytesseract
-wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
-tar -zxvf Imaging-1.1.7.tar.gz
-cd Imaging-1.1.7
-python setup.py install
 
+#pip install pytesseract
+#wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+#tar -zxvf Imaging-1.1.7.tar.gz
+#cd Imaging-1.1.7
+#python setup.py install
 
