@@ -37,3 +37,7 @@ LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make
 sudo LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make install
 sudo ldconfig
 
+#refer from http://stackoverflow.com/questions/14800730/tesseract-running-error
+wget https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
+sudo mv -v eng.traineddata /usr/local/share/tessdata/
+
