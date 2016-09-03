@@ -41,3 +41,14 @@ sudo ldconfig
 wget https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
 sudo mv -v eng.traineddata /usr/local/share/tessdata/
 
+#if you want use pytesser(google module,but not updated since 2007),below are needed,otherwise,till here,
+#everything is ok,that is to say,if you want to use tesseract directlly to recognize yanzhengma other than 
+#use pytesser to recognize yanzhengma,you don't need to execute below commands
+#these refer from http://www.jinglingshu.org/?p=9281
+pip install pytesseract
+wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+tar -zxvf Imaging-1.1.7.tar.gz
+cd Imaging-1.1.7
+python setup.py install
+
+
