@@ -32,7 +32,7 @@ def usage():
     sys.exit(0)
 def main():
     if sys.argv[1]!='-f':
-    	usage()
+        usage()
     file=open(sys.argv[2],"r+")
     list=file.readlines()
     file.close()
@@ -40,12 +40,12 @@ def main():
     
     for each in list:
         each=re.sub(r"(\s)$","",each)
-    	newfile=open("newfile.txt","a+")
-    	new_list=newfile.readlines()
-    	if each+'\r\n' not in new_list:
-    		newfile.write(each+'\r\n')
-    	newfile.flush()
-    	newfile.close()
+        newfile=open("newfile.txt","a+")
+        new_list=newfile.readlines()
+        if each+'\r\n' not in new_list:
+            newfile.write(each+'\r\n')
+        newfile.flush()
+        newfile.close()
 
 
 if __name__=="__main__":
