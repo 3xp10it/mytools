@@ -1,26 +1,21 @@
 #############################################################
-###                                                                                                                                                                                      _   _  ___  _           _____
-###                                                                                                                                                                                     | |_(_)/ _ \/ |_ ____  _|___ /
-###                                                                                                                                                                                     | __| | | | | | '_ \ \/ / |_ \
-###                                                                                                                                                                                     | |_| | |_| | | |_) >  < ___) |
-###                                                                                                                                                                                      \__|_|\___/|_| .__/_/\_\____/
-###                                                                                                                                                                                                   |_|
-###
+###                                                           
+### _|_|_|                          _|    _|    _|    _|      
+###       _|  _|    _|  _|_|_|    _|_|  _|  _|      _|_|_|_|  
+###   _|_|      _|_|    _|    _|    _|  _|  _|  _|    _|      
+###       _|  _|    _|  _|    _|    _|  _|  _|  _|    _|      
+### _|_|_|    _|    _|  _|_|_|      _|    _|    _|      _|_|  
+###                     _|                                    
+###                     _|                                    
+###                                                          
 ### name: blog.py
 ### function: write blog
-### date: 2016-08-08
+### date: 2016-11-02
 ### author: quanyechavshuo
-### blog: https://3xp10it.github.io
+### blog: https://3xp10it.cc
 #############################################################
-# -*- coding: utf-8 -*-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-#upon 4 lines for chinese support
 import time
-from exp10it import *
-figlet2file("3xp10it","/tmp/figletpic",True)
+from exp10it import figlet2file
+figlet2file("3xp10it",0,True)
 time.sleep(1)
 
-
-blog()
