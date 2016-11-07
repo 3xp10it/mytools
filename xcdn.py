@@ -15,6 +15,8 @@
 ### blog: https://3xp10it.cc
 #############################################################
 import time
+import os
+os.system("pip3 install exp10it -U")    
 from exp10it import figlet2file
 figlet2file("3xp10it",0,True)
 time.sleep(1)
@@ -28,7 +30,6 @@ from exp10it import get_request
 from exp10it import checkvpn
 import sys
 import re
-import os
 
 class Xcdn(object):
 
