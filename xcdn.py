@@ -130,7 +130,7 @@ class Xcdn(object):
         exists_domain_line = False
         with open("/etc/hosts", "r+") as f:
             file_content = f.read()
-        if re.search(r"%s" % domain.replace(".", "\."), file_content):
+        if re.search(r"%s" % self.domain.replace(".", "\."), file_content):
             exists_domain_line = True
         if exists_domain_line == True:
             os.system("sed -ri 's/.*%s.*/%s    %s/' %s" % (self.domain.replace(".", "\."), ip, self.domain, "/etc/hosts"))
