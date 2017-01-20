@@ -16,6 +16,8 @@
 #############################################################
 import time
 from exp10it import figlet2file
+from exp10it import blog
 figlet2file("3xp10it",0,True)
 time.sleep(1)
+blog()
 
