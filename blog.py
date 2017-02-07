@@ -12,7 +12,7 @@
 ### function: write blog
 ### date: 2016-11-02
 ### author: quanyechavshuo
-### blog: https://3xp10it.cc
+### blog: http://3xp10it.cc
 #############################################################
 import time
 from exp10it import figlet2file
