@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-#必须加上上面四行,否则各种编码的错误爆出
-
 import os
 
 tmp=0
@@ -39,7 +34,7 @@ def get_all_file_name(folder):
 
 def main():
     if os.path.exists('/root/githubpic') is False:
-        print "this is the first time you use me,or you have deleted /root/githubpic,I will mkdir /root/githubpic and git pull the github's pic.git,please put pngs to /root/githubpic when needed,and don't delet any png file in this folder"
+        print("this is the first time you use me,or you have deleted /root/githubpic,I will mkdir /root/githubpic and git pull the github's pic.git,please put pngs to /root/githubpic when needed,and don't delet any png file in this folder")
         os.system("mkdir /root/githubpic && cd /root/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
 
     os.system("cd /root/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
@@ -53,11 +48,11 @@ def main():
                 all=f.readlines()
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                 if each_addr+'\r\n' not in all:
-                    print each_addr
+                    print(each_addr)
                     f.write(each_addr+'\r\n')
                     f.close()
             except:
-                print "open /root/githubpic/address.txt wrong"
+                print("open /root/githubpic/address.txt wrong")
 
 if __name__=='__main__':
     main()
