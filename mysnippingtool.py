@@ -33,18 +33,18 @@ def get_all_file_name(folder):
 
 
 def main():
-    if os.path.exists('/root/githubpic') is False:
-        print("this is the first time you use me,or you have deleted /root/githubpic,I will mkdir /root/githubpic and git pull the github's pic.git,please put pngs to /root/githubpic when needed,and don't delet any png file in this folder")
-        os.system("mkdir /root/githubpic && cd /root/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
+    if os.path.exists('~/githubpic') is False:
+        print("this is the first time you use me,or you have deleted ~/githubpic,I will mkdir ~/githubpic and git pull the github's pic.git,please put pngs to ~/githubpic when needed,and don't delet any png file in this folder")
+        os.system("mkdir ~/githubpic && cd ~/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
 
-    os.system("cd /root/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
+    os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
 
-    all_png_list=get_all_file_name("/root/githubpic")
+    all_png_list=get_all_file_name("~/githubpic")
 
     for each in all_png_list:
         if each[-3:]=='png':
             try:
-                f=open("/root/githubpic/address.txt","a+")
+                f=open("~/githubpic/address.txt","a+")
                 all=f.readlines()
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                 if each_addr+'\r\n' not in all:
@@ -52,7 +52,7 @@ def main():
                     f.write(each_addr+'\r\n')
                     f.close()
             except:
-                print("open /root/githubpic/address.txt wrong")
+                print("open ~/githubpic/address.txt wrong")
 
 if __name__=='__main__':
     main()
@@ -60,12 +60,12 @@ if __name__=='__main__':
 
 '''
 print os.path.abspath(each) is not good function,
-it will get /root/桌面/spider_wooyun when I put this py script file in /root/桌面,and run:
+it will get ~/桌面/spider_wooyun when I put this py script file in ~/桌面,and run:
 (cd 桌面)
 python mysnippingtool.py
-it will get "/root/桌面/spider_wooyun" as a result,but the true result should be "/root/githubpic/spider_wooyun"
+it will get "~/桌面/spider_wooyun" as a result,but the true result should be "~/githubpic/spider_wooyun"
 so I use:
-current_file_abspath=os.path.isdir("/root/githubpic/"+each):
+current_file_abspath=os.path.isdir("~/githubpic/"+each):
 to get the current file's abspath
 '''
 
