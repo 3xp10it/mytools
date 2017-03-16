@@ -36,6 +36,7 @@ def main():
     if os.path.exists('~/githubpic') is False:
         print("this is the first time you use me,or you have deleted ~/githubpic,I will mkdir ~/githubpic and git pull the github's pic.git,please put pngs to ~/githubpic when needed,and don't delet any png file in this folder")
         os.system("mkdir ~/githubpic && cd ~/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
+        return
 
     os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
 
