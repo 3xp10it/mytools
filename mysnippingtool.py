@@ -1,3 +1,11 @@
+#Usage:
+#python3 mysnippingtool
+#python3 mysnippingtool -ua
+#python3 mysnippingtool -co
+#如果删除了~/githubpic目录下的图片,则要运行python3 mysnippingtool -ua表示手动更新address.txt中的列表
+#这种情况使用在人工测试mysnippintool脚本是否有错的时候会偶尔用到
+
+#-co表示打印出需要组合图片时候要访问的网站
 import sys
 import os
 from exp10it import getHomePath
@@ -34,30 +42,53 @@ def get_all_file_name(folder):
 
 
 def main():
+    import sys
     homePath=getHomePath()
     githubpicPath=homePath+"/githubpic"
+
     if os.path.exists(githubpicPath) is False:
         print("this is the first time you use me,or you have deleted ~/githubpic,I will mkdir ~/githubpic and git pull the github's pic.git,please put pngs to ~/githubpic when needed,and don't delet any png file in this folder")
         os.system("mkdir ~/githubpic && cd ~/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
         return
 
+    addressPath=githubpicPath+"/address.txt"
+
+    if len(sys.argv)==2 and sys.argv[1]=="-ua":
+        all_png_list=get_all_file_name(githubpicPath)
+
+        os.system("rm %s" % addressPath)
+        with open(addressPath,"a+") as f:
+            for each in all_png_list:
+                each="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
+                f.write(each+"\r\n")
+        return
+
+    if len(sys.argv)==2 and sys.argv[1]=="-co":
+        print("http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching")
+        print("Attention:macOS下自己截图保存组合后的图片质量更高")
+        return
+
     os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
 
     all_png_list=get_all_file_name(githubpicPath)
+    #print(all_png_list)
+
 
     for each in all_png_list:
-        if each[-3:]=='png':
-            try:
-                addressPath=githubpicPath+"/address.txt"
-                f=open(addressPath,"a+")
+        try:
+            with open(addressPath,"a+") as f:
+                f.seek(0)
                 all=f.readlines()
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
-                if each_addr+'\r\n' not in all:
-                    print(each_addr)
-                    f.write(each_addr+'\r\n')
-                    f.close()
-            except:
-                print("open ~/githubpic/address.txt wrong")
+                #下面发现从ubuntu到macOS下居然会将\r\n变成\n,于是要写成下面这样
+                if each_addr+'\r\n' not in all and each_addr not in all and each_addr+"\n" not in all:
+                    if "/.git/objects/" not in each_addr:
+                        #非/.git/objects/的文件
+                        print(each_addr)
+                        f.write(each_addr+'\r\n')
+                        f.close()
+        except:
+            print("open ~/githubpic/address.txt wrong")
 
 if __name__=='__main__':
     main()
