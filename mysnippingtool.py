@@ -64,8 +64,10 @@ def main():
         return
 
     if len(sys.argv)==2 and sys.argv[1]=="-co":
-        print("http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching")
+        onLineAddr="http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching"
+        print(onLineAddr)
         print("Attention:macOS下自己截图保存组合后的图片质量更高")
+        os.system("firefox %s" % onLineAddr)
         return
 
     os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
