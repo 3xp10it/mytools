@@ -33,19 +33,22 @@ def get_all_file_name(folder):
 
 
 def main():
-    if os.path.exists('~/githubpic') is False:
+    homePath=getHomePath()
+    githubpicPath=homePath+"/githubpic"
+    if os.path.exists(githubpicPath) is False:
         print("this is the first time you use me,or you have deleted ~/githubpic,I will mkdir ~/githubpic and git pull the github's pic.git,please put pngs to ~/githubpic when needed,and don't delet any png file in this folder")
         os.system("mkdir ~/githubpic && cd ~/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
         return
 
     os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
 
-    all_png_list=get_all_file_name("~/githubpic")
+    all_png_list=get_all_file_name(githubpicPath)
 
     for each in all_png_list:
         if each[-3:]=='png':
             try:
-                f=open("~/githubpic/address.txt","a+")
+                addressPath=githubpicPath+"/address.txt"
+                f=open(addressPath,"a+")
                 all=f.readlines()
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                 if each_addr+'\r\n' not in all:
@@ -61,6 +64,7 @@ if __name__=='__main__':
 
 '''
 print os.path.abspath(each) is not good function,
+
 it will get ~/桌面/spider_wooyun when I put this py script file in ~/桌面,and run:
 (cd 桌面)
 python mysnippingtool.py
