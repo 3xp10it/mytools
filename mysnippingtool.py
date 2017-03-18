@@ -64,9 +64,11 @@ def main():
         return
 
     if len(sys.argv)==2 and sys.argv[1]=="-co":
-        onLineAddr="http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching"
-        print(onLineAddr)
-        print("Attention:macOS下自己截图保存组合后的图片质量更高")
+        onLineAddr1="http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching"
+        onLineAddr2="http://xiuxiu.web.meitu.com/puzzle/"
+        print(onLineAddr1)
+        print(onLineAddr2)
+        print("tips:macOS下自己截图保存组合后的图片质量更高")
         os.system("firefox %s" % onLineAddr)
         return
 
