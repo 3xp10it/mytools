@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 os.system("pip3 install exp10it -U")
 from exp10it import get_string_from_command
