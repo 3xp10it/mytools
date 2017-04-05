@@ -47,12 +47,12 @@ elif re.search(r"darwin",a,re.I):
     os.system("wget %s -O /tmp/MacVim.dmg" % macvimUrl)
     os.system("open /tmp/MacVim.dmg")
     #下面安装vim配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc_linux -O .vimrc")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc_MacVim -O .vimrc")
     #下面安装vim的vundle插件管理工具
     os.system("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
     print("1.I have download vundle for you,you need run vim and :BundleInsall by yourself")
     #下面安装vimperator配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimperatorrc_linux -O .vimperatorrc")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimperatorrc_macOS -O .vimperatorrc")
     print("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself")
 
 print("Congratulations! zsh & tmux & vim are ok for work now")
