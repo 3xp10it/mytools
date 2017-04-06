@@ -30,7 +30,7 @@ if re.search(r"(debian)|(ubuntu)",a,re.I):
     input("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself,then press any key")
 
 elif re.search(r"darwin",a,re.I):
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS -O .zshrc")
     #下面安装最新版本tmux
     html=requests.get("https://github.com/tmux/tmux/releases").text
     a=re.findall(r'''href="(.*\.tar.gz)"''',html,re.I)
