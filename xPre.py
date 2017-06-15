@@ -11,9 +11,9 @@ else:
     #下面设置zsh为默认shell
     os.system("chsh -s `which zsh`")
     #下面安装oh-my-zsh
-    os.system('''sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"''')
-    #下面这时退出zsh,要不然后续的安装过程无法继续(除非人工ctrl+d)
-    os.system('''exit''')
+    os.system('''sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && exit''')
+    #上面之后要退出zsh,要不然后续的安装过程无法继续(除非人工ctrl+d)
+    
 
 a=get_string_from_command("uname -a")
 if re.search(r"(debian)|(ubuntu)",a,re.I):
