@@ -51,6 +51,10 @@ if re.search(r"(debian)|(ubuntu)",a,re.I):
     else:
         input("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself,then press any key")
 
+    #下面更新rime配置
+    os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/.config/ibus/rime/default.custom.yaml")
+    input("如果安装了rime,此时需要重新部署rime,然后按任意键继续...")
+
 elif re.search(r"darwin",a,re.I):
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS -O .zshrc")
     if pur=='1':
@@ -90,5 +94,9 @@ elif re.search(r"darwin",a,re.I):
         pass
     else:
         input("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself,then press any key")
+
+    #下面更新squirrel配置
+    os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
+    input("如果安装了squirrel,此时需要重新部署squirrel,然后按任意键继续...")
 
 print("Congratulations! zsh & tmux & vim are ok for work now")
