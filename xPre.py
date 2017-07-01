@@ -99,4 +99,4 @@ elif re.search(r"darwin",a,re.I):
     os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
     input("如果安装了squirrel,此时需要重新部署squirrel,然后按任意键继续...")
 
-print("Congratulations! zsh & tmux & vim are ok for work now")
+print("Congratulations! zsh & tmux & vim & rime[squirrel] are ok for work now")
