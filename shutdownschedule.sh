@@ -1,5 +1,7 @@
-xinqi=`date | ack '星期\S+' -o`
-if [ "$xinqi" != "星期六" -a "$xinqi" != "星期天" ]; then
-    say 主人主人,还有1分钟就要关机了
-    shutdown -h +1
-fi
+#!/usr/bin/env python3
+import os
+from datetime import datetime
+weekIndex = datetime.now().weekday()
+if weekIndex not in [5, 6]:
+    os.system("say cool boy,还有1分钟就要关机了")
+    os.system("shutdown -h +1")
