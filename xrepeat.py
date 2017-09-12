@@ -15,7 +15,7 @@ print("老文件共%s个word" % str(len(allLines)))
 newList=[]
 for eachLine in allLines:    
     eachWord=re.sub(r"\s$","",eachLine)
-    if eachWord not in newList:
+    if eachWord not in newList and eachWord!="":
         newList.append(eachWord)
 print("新文件共%s个word" % str(len(newList)))
 for eachWord in newList:
