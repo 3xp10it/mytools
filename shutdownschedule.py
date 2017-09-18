@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/local/bin/python3
 import os
 from datetime import datetime
 weekIndex = datetime.now().weekday()
