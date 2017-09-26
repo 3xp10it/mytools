@@ -4,21 +4,30 @@ import requests
 os.system("pip3 install exp10it -U")
 from exp10it import get_string_from_command
 from exp10it import get_request
-pur=input("1.只更新配置文件\n2.安装zsh+vim+tmux+配置文件\ninput your choose here:>")
+pur=input("1.只更新配置文件\n2.安装zsh+vim+tmux+配置文件\n3.安装fish+vim+tmux+配置文件\ninput your choose here:>")
 if pur=='1':
     pass
-else:
+elif pur=='2':
     #下面设置zsh为默认shell
     os.system("chsh -s `which zsh`")
     #下面安装oh-my-zsh
     os.system('''sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && exit''')
     #上面之后要退出zsh,要不然后续的安装过程无法继续(除非人工ctrl+d)
+
+else:
+    #下面设置fish为默认shell
+    os.system("brew install fish")
+    os.system("chsh -s `which fish`")
+    #下面安装oh-my-fish
+    os.system('''curl -L https://get.oh-my.fish | fish''')
     
 
 a=get_string_from_command("uname -a")
 if re.search(r"(debian)|(ubuntu)",a,re.I):
     #下面安装.zshrc配置
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_ubuntu -O .zshrc")
+    #下面安装config.fish配置
+    os.system("wget https://raw.githubusercontent.com/3xp10it/config.fish/master/config.fish -O ~/.config/fish/config.fish")
     if pur=='1':
         pass
     else:
@@ -56,7 +65,10 @@ if re.search(r"(debian)|(ubuntu)",a,re.I):
     input("如果安装了rime,此时需要重新部署rime,然后按任意键继续...")
 
 elif re.search(r"darwin",a,re.I):
+    #下面安装.zshrc配置文件
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS -O .zshrc")
+    #下面安装config.fish配置
+    os.system("wget https://raw.githubusercontent.com/3xp10it/config.fish/master/config.fish -O ~/.config/fish/config.fish")
     if pur=='1':
         pass
     else:
@@ -99,4 +111,4 @@ elif re.search(r"darwin",a,re.I):
     os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
     input("如果安装了squirrel,此时需要重新部署squirrel,然后按任意键继续...")
 
-print("Congratulations! zsh & tmux & vim & rime[squirrel] are ok for work now")
+print("Congratulations! All your work has been finished:)")
