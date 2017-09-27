@@ -20,6 +20,7 @@ else:
     os.system("chsh -s `which fish`")
     #下面安装oh-my-fish
     os.system('''curl -L https://get.oh-my.fish | fish''')
+    #上面之后要退出fish,要不然后续的安装过程无法继续(除非人工ctrl+d)
     
 
 a=get_string_from_command("uname -a")
