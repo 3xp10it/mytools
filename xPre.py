@@ -17,6 +17,7 @@ elif pur=='2':
 else:
     #下面设置fish为默认shell
     os.system("brew install fish")
+    os.system("echo "/usr/local/bin/fish" | sudo tee -a /etc/shells")
     os.system("chsh -s `which fish`")
     #下面安装oh-my-fish
     os.system('''curl -L https://get.oh-my.fish | fish''')
