@@ -4,6 +4,7 @@ import requests
 os.system("pip3 install exp10it -U")
 from exp10it import get_string_from_command
 from exp10it import get_request
+sysinfo = get_string_from_command("uname -a")
 with open("/etc/shells", "r") as f:
     content = f.read()
 pur = input("1.只更新配置文件\n2.安装zsh+vim+tmux+配置文件\n3.安装fish+vim+tmux+配置文件\ninput your choose here:>")
@@ -19,8 +20,14 @@ elif pur == '2':
     # 上面之后要退出zsh,要不然后续的安装过程无法继续(除非人工ctrl+d)
 
 else:
+    # 选择3(安装fish）
     # 下面设置fish为默认shell
-    os.system("brew install fish")
+    if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
+        os.system("echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list ")
+        os.system("apt-get update")
+        os.system("apt-get install fish")
+    elif re.search(r"darwin",sysinfo,re.I):
+        os.system("brew install fish")
     if not re.search(r"/usr/local/bin/fish", content, re.I):
         os.system('''echo "/usr/local/bin/fish" | sudo tee -a /etc/shells''')
     os.system("chsh -s `which fish`")
@@ -29,8 +36,7 @@ else:
     # 上面之后要退出fish,要不然后续的安装过程无法继续(除非人工ctrl+d)
 
 
-a = get_string_from_command("uname -a")
-if re.search(r"(debian)|(ubuntu)", a, re.I):
+if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
     # 下面安装.zshrc配置
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_ubuntu -O .zshrc")
     # 下面安装config.fish配置
@@ -71,7 +77,7 @@ if re.search(r"(debian)|(ubuntu)", a, re.I):
     os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/.config/ibus/rime/default.custom.yaml")
     input("如果安装了rime,此时需要重新部署rime,然后按任意键继续...")
 
-elif re.search(r"darwin", a, re.I):
+elif re.search(r"darwin", sysinfo, re.I):
     # 下面安装.zshrc配置文件
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS -O .zshrc")
     # 下面安装config.fish配置
