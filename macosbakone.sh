@@ -31,10 +31,9 @@ elif [ -d $bakupdevice -a -d $bakupfolder ]; then
     echo "bakupdevice is ok,bakupfolder exist"
     if [ -f $bakupfile1 ]; then
         rm $bakupfile1
-        tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
     fi
 elif [ -d $bakupdevice -a ! -d $bakupfolder ]; then
     echo "bakupdevice is ok,bakupfolder not exist"
     mkdir $bakupfolder
-    tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
 fi
+tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /

@@ -34,21 +34,21 @@ elif [ -d $bakupdevice -a -d $bakupfolder ]; then
         echo "bakupfile1 exists,bakupfile2 exists"
         rm $bakupfile1
         mv $bakupfile2 $bakupfile1
-        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
+        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /
     elif [ ! -f $bakupfile1 -a ! -f $bakupfile2 ]; then
         echo "bakupfile1 not exist,bakupfile2 not exist"
-        tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
+        tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /
     elif [ -f $bakupfile1 -a ! -f $bakupfile2 ]; then
         echo "bakupfile1 exist,bakupfile2 not exist"
-        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
+        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /
     elif [ ! -f $bakupfile1 -a -f $bakupfile2 ]; then
         echo "bakupfile1 not exist,bakupfile2 exist"
         mv $bakupfile2 $bakupfile1
-        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
+        tar cvpzf $bakupfile2 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /
 
     fi
 elif [ -d $bakupdevice -a ! -d $bakupfolder ]; then
     echo "bakupdevice is ok,bakupfolder not exist"
     mkdir $bakupfolder
-    tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm /
+    tar cvpzf $bakupfile1 --exclude=/macosbak --exclude=/Volumes --exclude="/Library/Application Support" --exclude=/Library/Caches --exclude=~/.cache --exclude=/private/var/log --exclude=~/.Trash --exclude="~/Documents/Virtual Machines.localized" --exclude=~/Downloads --exclude=~/Library/Caches --exclude=/private/var/tmp --exclude=/private/var/vm --exclude=/Users/Shared/Parallels /
 fi
