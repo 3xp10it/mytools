@@ -5,6 +5,15 @@ os.system("pip3 install exp10it -U")
 from exp10it import get_string_from_command
 from exp10it import get_request
 sysinfo = get_string_from_command("uname -a")
+
+# 安装git,为了后面能安装vundle
+a=get_string_from_command("git help")
+if re.search(r"(未找到命令)|(not found)|(unknown command)",a,re.I):
+    if re.search(r"(ubuntu)|(debain)",sysinfo,re.I):
+        os.system("apt-get install git")
+    if re.search(r"darwin",sysinfo,re.I):
+        os.system("brew install git")
+
 with open("/etc/shells", "r") as f:
     content = f.read()
 pur = input("1.只更新配置文件\n2.安装zsh+vim+tmux+配置文件\n3.安装fish+vim+tmux+配置文件\ninput your choose here:>")
