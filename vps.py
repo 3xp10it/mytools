@@ -3,6 +3,7 @@ cmd='''apt-get install python3-pip
 apt-get install python-pip
 pip install shadowsocks
 pip3 install requests
+apt-get install git
 '''
 os.system(cmd)
 os.system("hostname -I")
