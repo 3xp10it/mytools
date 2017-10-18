@@ -3,6 +3,7 @@ cmd='''apt-get install python-pip
 pip install shadowsocks
 '''
 os.system(cmd)
+os.system("hostname -I")
 ss_ip=input("please input your vps ip:")
 ss_port=input("please input your shadowsocks server port:")
 ss_password=input("please input your shadowsocks password:")
