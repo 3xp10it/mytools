@@ -9,7 +9,7 @@ ss_port=input("please input your shadowsocks server port:")
 ss_password=input("please input your shadowsocks password:")
 shadowsocks_json='''
 {
-    "server":"your_server_ip",
+    "server":"%s",
     "server_port":%s,
     "local_address": "127.0.0.1",
     "local_port":1080,
@@ -33,4 +33,3 @@ echo 'LANGUAGE="zh_CN:zh"' >> /etc/default/locale
 '''
 os.system("lang2utf8")
 os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/xPre.py && python3 xPre.py")
-
