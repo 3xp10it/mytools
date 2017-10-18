@@ -28,10 +28,10 @@ with open("/etc/shadowsocks.json","a+") as f:
 print("your shadowsocks config file content is:\n"+shadowsocks_json)
 os.system("ssserver -c /etc/shadowsocks -d start")
 lang2utf8='''
-sudo apt-get install language-selector language-env language-pack-zh-hans
+apt-get install language-selector language-env language-pack-zh-hans
 dpkg-reconfigure locales
 echo 'LANG="zh_CN.UTF-8"' > /etc/default/locale
 echo 'LANGUAGE="zh_CN:zh"' >> /etc/default/locale
 '''
 os.system(lang2utf8)
-os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/xPre.py && python3 xPre.py")
+os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/xPre.py -O xPre.py && python3 xPre.py")
