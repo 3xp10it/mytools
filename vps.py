@@ -1,6 +1,8 @@
 import os
-cmd='''apt-get install python-pip
+cmd='''apt-get install python3-pip
+apt-get install python-pip
 pip install shadowsocks
+pip3 install requests
 '''
 os.system(cmd)
 os.system("hostname -I")
