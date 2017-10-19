@@ -21,6 +21,8 @@ if pur == '1':
     pass
 elif pur == '2':
     # 下面设置zsh为默认shell
+    if not os.path.exists("/bin/zsh"):
+        os.system("apt-get install zsh")
     if not re.search(r"/bin/zsh", content, re.I):
         os.system('''echo "/bin/zsh" | sudo tee -a /etc/shells''')
     os.system("chsh -s `which zsh`")
