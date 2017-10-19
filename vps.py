@@ -28,7 +28,7 @@ if os.path.exists("/etc/shadowsocks.json"):
 with open("/etc/shadowsocks.json","a+") as f:
     f.write(shadowsocks_json)
 print("your shadowsocks config file content is:\n"+shadowsocks_json)
-os.system("ssserver -c /etc/shadowsocks -d start")
+os.system("ssserver -c /etc/shadowsocks.json -d start")
 lang2utf8='''
 apt-get install language-selector language-env language-pack-zh-hans
 dpkg-reconfigure locales
