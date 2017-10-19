@@ -64,7 +64,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         pass
     else:
         # 下面安装较新版本vim
-        os.system("add-apt-repository ppa:jonathonf/vim && apt update && apt install vim")
+        os.system("apt-get install software-properties-common && add-apt-repository ppa:jonathonf/vim && apt update && apt install vim")
     # 下面安装vim配置
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc_linux -O .vimrc")
 
