@@ -9,7 +9,7 @@ if sys.argv[1] == "--update":
     for eachDir in dirList:
         os.system("cd %s && git pull" % eachDir)
 if sys.argv[1] == "--commit":
-    os.system("upa")
+    os.system("python3 /usr/share/mytools/up.py")
     for eachDir in dirList:
         os.system(
             "cd %s && git add . && git commit -a -m 'up' && git push -u origin master" % eachDir)
