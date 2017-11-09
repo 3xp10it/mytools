@@ -8,6 +8,7 @@
 #-co表示打印出需要组合图片时候要访问的网站
 import sys
 import os
+import re
 from exp10it import getHomePath
 
 tmp=0
@@ -59,8 +60,9 @@ def main():
         os.system("rm %s" % addressPath)
         with open(addressPath,"a+") as f:
             for each in all_png_list:
-                each="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
-                f.write(each+"\r\n")
+                if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)$",each,re.I):
+                    each="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
+                    f.write(each+"\r\n")
         return
 
     if len(sys.argv)==2 and sys.argv[1]=="-co":
@@ -86,8 +88,7 @@ def main():
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                 #下面发现从ubuntu到macOS下居然会将\r\n变成\n,于是要写成下面这样
                 if each_addr+'\r\n' not in all and each_addr not in all and each_addr+"\n" not in all:
-                    if "/.git/objects/" not in each_addr:
-                        #非/.git/objects/的文件
+                    if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)$",each_addr,re.I):
                         print(each_addr)
                         f.write(each_addr+'\r\n')
                         f.close()
