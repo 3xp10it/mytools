@@ -15,14 +15,14 @@
 ### blog: https://3xp10it.github.io
 #############################################################
 # unbuntu
-sudo apt-get install autoconf automake libtool
-sudo apt-get install libpng12-dev
-sudo apt-get install libjpeg62-dev
-sudo apt-get install libtiff4-dev
-sudo apt-get install zlib1g-dev
-sudo apt-get install libicu-dev
-sudo apt-get install libpango1.0-dev
-sudo apt-get install libcairo2-dev
+sudo echo y | apt-get install autoconf automake libtool
+sudo echo y | apt-get install libpng12-dev
+sudo echo y | apt-get install libjpeg62-dev
+sudo echo y | apt-get install libtiff4-dev
+sudo echo y | apt-get install zlib1g-dev
+sudo echo y | apt-get install libicu-dev
+sudo echo y | apt-get install libpango1.0-dev
+sudo echo y | apt-get install libcairo2-dev
 export PATH=/usr/local/lib:$PATH
 
 #if leptonica update,should update the version

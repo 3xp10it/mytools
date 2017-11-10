@@ -10,7 +10,7 @@ sysinfo = get_string_from_command("uname -a")
 a=get_string_from_command("git help")
 if re.search(r"(未找到命令)|(not found)|(unknown command)",a,re.I):
     if re.search(r"(ubuntu)|(debain)",sysinfo,re.I):
-        os.system("apt-get install git")
+        os.system("echo y | apt-get install git")
     if re.search(r"darwin",sysinfo,re.I):
         os.system("brew install git")
 
@@ -22,7 +22,7 @@ if pur == '1':
 elif pur == '2':
     # 下面设置zsh为默认shell
     if not os.path.exists("/bin/zsh"):
-        os.system("apt-get install zsh")
+        os.system("echo y | apt-get install zsh")
     if not re.search(r"/bin/zsh", content, re.I):
         os.system('''echo "/bin/zsh" | sudo tee -a /etc/shells''')
     os.system("chsh -s `which zsh`")
@@ -35,8 +35,8 @@ else:
     # 下面设置fish为默认shell
     if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         os.system("echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list ")
-        os.system("apt-get update")
-        os.system("apt-get install fish")
+        os.system("echo y | apt-get update")
+        os.system("echo y | apt-get install fish")
     elif re.search(r"darwin",sysinfo,re.I):
         os.system("brew install fish")
     if not re.search(r"/usr/local/bin/fish", content, re.I):
@@ -56,9 +56,9 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         pass
     else:
         # 下面准备配置ctrl与caps键,其中上面的.zshrc中已经有caps设置按住为ctrl,按一下为esc
-        os.system("apt-get install xcape")
+        os.system("echo y | apt-get install xcape")
         # 下面安装tmux
-        os.system("apt-get install tmux")
+        os.system("echo y | apt-get install tmux")
     # 下面安装tmux配置
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntuTmux/.tmux.conf -O .tmux.conf && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntuTmux/.tmux.conf.local -O .tmux.conf.local")
 
@@ -66,7 +66,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         pass
     else:
         # 下面安装较新版本vim
-        os.system("apt-get install software-properties-common && add-apt-repository ppa:jonathonf/vim && apt update && apt install vim")
+        os.system("echo y | apt-get install software-properties-common && add-apt-repository ppa:jonathonf/vim && apt update && apt install vim")
     # 下面安装vim配置
     os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc_linux -O .vimrc")
 

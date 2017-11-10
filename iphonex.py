@@ -32,7 +32,7 @@ def buy_ipx():
         if systemPlatform == "Darwin":
             os.system("brew install phantomjs")
         elif systemPlatform == 'Linux':
-            os.system("apt-get install phantomjs")
+            os.system("echo y | apt-get install phantomjs")
         elif systemPlatform == 'Windows':
             import wget
             try:
