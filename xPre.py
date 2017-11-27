@@ -1,8 +1,11 @@
 import os
 import re
 import requests
-os.system("pip3 install exp10it -U")
 from exp10it import get_string_from_command
+a=get_string_from_command("pip3")
+if re.search(r"(未找到命令)|(command not found)",a,re.I):
+    os.system("apt-get install python3-pip")
+os.system("pip3 install exp10it -U")
 from exp10it import get_request
 sysinfo = get_string_from_command("uname -a")
 
