@@ -9,7 +9,7 @@
 import sys
 import os
 import re
-from exp10it import getHomePath
+from exp10it import get_home_path
 
 tmp=0
 all_file_name_list=[]
@@ -44,7 +44,7 @@ def get_all_file_name(folder):
 
 def main():
     import sys
-    homePath=getHomePath()
+    homePath=get_home_path()
     githubpicPath=homePath+"/githubpic"
 
     if os.path.exists(githubpicPath) is False:
