@@ -70,10 +70,10 @@ for qihao in qihao_list:
 "use strict";
 var page = require('webpage').create(),
     server = 'http://xxx.xxx.xxx',
-    data = 'pageNo=1&issueNumber=%s&applyCode=';
+    data = 'page_no=1&issue_number=%s&apply_code=';
 
-page.settings.resourceTimeout = 9999999999999;
-page.settings.userAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.%s Safari/537.36";
+page.settings.resource_timeout = 9999999999999;
+page.settings.user_agent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.%s Safari/537.36";
 
 page.open(server, 'post', data, function (status) {
     if (status !== 'success') {
@@ -99,14 +99,14 @@ page.open(server, 'post', data, function (status) {
             print("没有获取到页数,尝试再次获取...")
             continue
 
-    pageNo = has_page_no.group(1)
-    print("期号:%s,页数:%s" % (qihao, pageNo))
+    page_no = has_page_no.group(1)
+    print("期号:%s,页数:%s" % (qihao, page_no))
     page_list = []
-    for page in range(1, int(pageNo) + 1):
+    for page in range(1, int(page_no) + 1):
         page_list.append(str(page))
 
     def get_page_content(page):
-        data = "pageNo=%s&issueNumber=%s&applyCode=" % (page, qihao)
+        data = "page_no=%s&issue_number=%s&apply_code=" % (page, qihao)
         print("正在请求第%s期,第%s页..." % (qihao, page))
         rsp = requests.get(url, timeout=60)
         cookie = rsp.headers['Set-Cookie']

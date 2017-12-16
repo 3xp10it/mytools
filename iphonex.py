@@ -10,7 +10,7 @@ try_index=3
 import os
 import time
 from exp10it import get_request
-from exp10it import moduleExist
+from exp10it import module_exist
 from exp10it import get_string_from_command
 import re
 from exp10it import get_http_domain_from_url
@@ -18,22 +18,22 @@ from exp10it import get_http_domain_from_url
 
 
 
-proxyUrl=""
+proxy_url=""
 
 cookie=""
 
 def buy_ipx():
-    if moduleExist("selenium") is False:
+    if module_exist("selenium") is False:
         os.system("pip3 install selenium")
     from selenium import webdriver
     from selenium.common.exceptions import TimeoutException
     result = get_string_from_command("phantomjs --help")
     if re.search(r"(not found)|(不是内部或外部命令)|(Unknown command)", result,re.I):
-        if systemPlatform == "Darwin":
+        if system_platform == "Darwin":
             os.system("brew install phantomjs")
-        elif systemPlatform == 'Linux':
+        elif system_platform == 'Linux':
             os.system("echo y | apt-get install phantomjs")
-        elif systemPlatform == 'Windows':
+        elif system_platform == 'Windows':
             import wget
             try:
                 wget.download(
@@ -47,14 +47,14 @@ def buy_ipx():
     from selenium.webdriver.support.ui import WebDriverWait 
     from selenium.webdriver.support import expected_conditions
 
-    if proxyUrl == "" or proxyUrl == 0:
+    if proxy_url == "" or proxy_url == 0:
         service_args_value = ['--ignore-ssl-errors=true',
                               '--ssl-protocol=any', '--web-security=false']
-    if proxyUrl != "" and proxyUrl != 0:
-        proxyType = proxyUrl.split(":")[0]
-        proxyValueWithType = proxyUrl.split("/")[-1]
+    if proxy_url != "" and proxy_url != 0:
+        proxy_type = proxy_url.split(":")[0]
+        proxy_value_with_type = proxy_url.split("/")[-1]
         service_args_value = ['--ignore-ssl-errors=true', '--ssl-protocol=any', '--web-security=false',
-                              '--proxy=%s' % proxyValueWithType, '--proxy-type=%s' % proxyType]
+                              '--proxy=%s' % proxy_value_with_type, '--proxy-type=%s' % proxy_type]
         #service_args_value.append('--load-images=no')  ##关闭图片加载
         service_args_value.append('--disk-cache=yes')  ##开启缓存
 
@@ -68,7 +68,7 @@ def buy_ipx():
     else:
         headers = {'User-Agent': '%s' % ua}
     for key in headers:
-        capability_key = 'phantomjs.page.customHeaders.{}'.format(key)
+        capability_key = 'phantomjs.page.custom_headers.{}'.format(key)
         webdriver.DesiredCapabilities.PHANTOMJS[capability_key] = headers[key]
     driver = webdriver.PhantomJS(service_args=service_args_value)
 
@@ -80,10 +80,10 @@ def buy_ipx():
 
     WebDriverWait(driver, 300).until( 
       expected_conditions.element_to_be_clickable( 
-        (By.NAME, 'login-appleId')
+        (By.NAME, 'login-apple_id')
       ) 
     )
-    user_text_box=driver.find_element_by_name('login-appleId')
+    user_text_box=driver.find_element_by_name('login-apple_id')
     user_text_box.clear()
     user_text_box.send_keys(apple_id)
     pass_text_box=driver.find_element_by_name('login-password')
@@ -144,10 +144,10 @@ def buy_ipx():
 
     WebDriverWait(driver, 300).until( 
       expected_conditions.element_to_be_clickable( 
-        (By.NAME, 'login-appleId')
+        (By.NAME, 'login-apple_id')
       ) 
     )
-    user_text_box=driver.find_element_by_name('login-appleId')
+    user_text_box=driver.find_element_by_name('login-apple_id')
     user_text_box.clear()
     user_text_box.send_keys('1731977663@qq.com')
     pass_text_box=driver.find_element_by_name('login-password')
@@ -217,11 +217,11 @@ def buy_ipx():
 
     WebDriverWait(driver, 300).until( 
       expected_conditions.element_to_be_clickable( 
-        (By.ID ,'payNow')
+        (By.ID ,'pay_now')
       ) 
     )
 
-    pay_now_button=driver.find_element_by_id('payNow')
+    pay_now_button=driver.find_element_by_id('pay_now')
     pay_now_button.click()
 
 
@@ -237,7 +237,7 @@ def buy_ipx():
     zhifubao_username_box.clear()
     zhifubao_username_box.send_keys(zhifubao_username)
 
-    zhifubao_pass_box=driver.find_element_by_id('payPasswd_rsainput')
+    zhifubao_pass_box=driver.find_element_by_id('pay_passwd_rsainput')
     zhifubao_pass_box.click()
     #zhifubao_pass_box.clear()
     zhifubao_pass_box.send_keys(zhifumima)
@@ -255,11 +255,11 @@ def buy_ipx():
 
     WebDriverWait(driver, 300).until( 
       expected_conditions.url_contains( 
-        'standard/lightpay/lightPayCashier.htm'
+        'standard/lightpay/light_pay_cashier.htm'
       ) 
     )
 
-    tmp=driver.find_element_by_id('payPassword_rsainput')
+    tmp=driver.find_element_by_id('pay_password_rsainput')
     tmp.click()
     tmp.send_keys(zhifumima)
 
@@ -270,7 +270,7 @@ def buy_ipx():
     tmp.click()
 
 
-def checkStartTime():
+def check_start_time():
     while True:
         a=time.strftime('%H:%M:%S',time.localtime(time.time()))
         print(a)

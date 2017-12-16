@@ -44,21 +44,21 @@ def get_all_file_name(folder):
 
 def main():
     import sys
-    homePath=get_home_path()
-    githubpicPath=homePath+"/githubpic"
+    home_path=get_home_path()
+    githubpic_path=home_path+"/githubpic"
 
-    if os.path.exists(githubpicPath) is False:
+    if os.path.exists(githubpic_path) is False:
         print("this is the first time you use me,or you have deleted ~/githubpic,I will mkdir ~/githubpic and git pull the github's pic.git,please put pngs to ~/githubpic when needed,and don't delet any png file in this folder")
         os.system("mkdir ~/githubpic && cd ~/githubpic && git init && git pull https://github.com/3xp10it/pic.git && git remote add origin https://github.com/3xp10it/pic.git && git status")
         return
 
-    addressPath=githubpicPath+"/address.txt"
+    address_path=githubpic_path+"/address.txt"
 
     if len(sys.argv)==2 and sys.argv[1]=="-ua":
-        all_png_list=get_all_file_name(githubpicPath)
+        all_png_list=get_all_file_name(githubpic_path)
 
-        os.system("rm %s" % addressPath)
-        with open(addressPath,"a+") as f:
+        os.system("rm %s" % address_path)
+        with open(address_path,"a+") as f:
             for each in all_png_list:
                 if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)$",each,re.I):
                     each="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
@@ -66,23 +66,23 @@ def main():
         return
 
     if len(sys.argv)==2 and sys.argv[1]=="-co":
-        onLineAddr1="http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching"
-        onLineAddr2="http://xiuxiu.web.meitu.com/puzzle/"
-        print(onLineAddr1)
-        print(onLineAddr2)
-        print("tips:macOS下自己截图保存组合后的图片质量更高")
-        os.system("firefox %s" % onLineAddr)
+        on_line_addr1="http://www.fotor.com/app.html#!module/collage/tool/PhotoStitching"
+        on_line_addr2="http://xiuxiu.web.meitu.com/puzzle/"
+        print(on_line_addr1)
+        print(on_line_addr2)
+        print("tips:mac_o_s下自己截图保存组合后的图片质量更高")
+        os.system("firefox %s" % on_line_addr)
         return
 
     os.system("cd ~/githubpic && git add . && git status && git commit -a -m 'update' && git push -u origin master")
 
-    all_png_list=get_all_file_name(githubpicPath)
+    all_png_list=get_all_file_name(githubpic_path)
     #print(all_png_list)
 
 
     for each in all_png_list:
         try:
-            with open(addressPath,"a+") as f:
+            with open(address_path,"a+") as f:
                 f.seek(0)
                 all=f.readlines()
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each

@@ -7,7 +7,7 @@ import urllib2
 
 def getip():
     return "113.116.175.200"
-url="http://ip.taobao.com/service/getIpInfo.php?ip=%s" % (getip())
+url="http://ip.taobao.com/service/get_ip_info.php?ip=%s" % (getip())
 response = urllib2.urlopen(url)
 html = response.read()
 import json

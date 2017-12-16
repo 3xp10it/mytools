@@ -1,15 +1,15 @@
-# 每天第1次接触电脑时运行py3 gitTool.py --update
-# 每天第-1次接触电脑时运行py3 gitTool.py --commit
+# 每天第1次接触电脑时运行py3 git_tool.py --update
+# 每天第-1次接触电脑时运行py3 git_tool.py --commit
 
 import sys
 import os
-dirList = ["~/myblog/", "~/3xp10it.github.io/",
+dir_list = ["~/myblog/", "~/3xp10it.github.io/",
            "~/mypypi/", "/usr/share/mytools","~/githubpic/","~/3xp10it"]
 if sys.argv[1] == "--update":
-    for eachDir in dirList:
-        os.system("cd %s && git pull" % eachDir)
+    for each_dir in dir_list:
+        os.system("cd %s && git pull" % each_dir)
 if sys.argv[1] == "--commit":
     os.system("bash /usr/share/mytools/up.sh")
-    for eachDir in dirList:
+    for each_dir in dir_list:
         os.system(
-            "cd %s && git add . && git commit -a -m 'up' && git push -u origin master" % eachDir)
+            "cd %s && git add . && git commit -a -m 'up' && git push -u origin master" % each_dir)

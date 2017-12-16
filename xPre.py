@@ -30,7 +30,7 @@ elif pur == '2':
         os.system('''echo "/bin/zsh" | sudo tee -a /etc/shells''')
     os.system("chsh -s `which zsh`")
     # 下面安装oh-my-zsh
-    os.system('''sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && exit''')
+    os.system('''sh -c "$(curl -fs_sL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && exit''')
     # 上面之后要退出zsh,要不然后续的安装过程无法继续(除非人工ctrl+d)
 
 else:
@@ -63,7 +63,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         # 下面安装tmux
         os.system("echo y | apt-get install tmux")
     # 下面安装tmux配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntuTmux/.tmux.conf -O .tmux.conf && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntuTmux/.tmux.conf.local -O .tmux.conf.local")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntu_tmux/.tmux.conf -O .tmux.conf && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/ubuntu_tmux/.tmux.conf.local -O .tmux.conf.local")
 
     if pur == "1":
         pass
@@ -93,7 +93,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
 
 elif re.search(r"darwin", sysinfo, re.I):
     # 下面安装.zshrc配置文件
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_macOS -O .zshrc")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.zshrc/master/.zshrc_mac_oS -O .zshrc")
     # 下面安装config.fish配置
     os.system("wget https://raw.githubusercontent.com/3xp10it/config.fish/master/config.fish -O ~/.config/fish/config.fish")
     if pur == '1':
@@ -102,23 +102,23 @@ elif re.search(r"darwin", sysinfo, re.I):
         # 下面安装最新版本tmux
         html = requests.get("https://github.com/tmux/tmux/releases").text
         a = re.findall(r'''href="(.*\.tar.gz)"''', html, re.I)
-        tmuxUrl = "https://github.com" + a[0]
-        os.system("wget %s -O /tmp/tmux.tar.gz" % tmuxUrl)
+        tmux_url = "https://github.com" + a[0]
+        os.system("wget %s -O /tmp/tmux.tar.gz" % tmux_url)
         os.system("cd /tmp && tar -xvzf tmux.tar.gz -C /tmp/tmux")
         os.system("cd /tmp/tmux && ./configure && make && make install && rm -r /tmp/tmux && rm /tmp/tmux.tar.gz")
     # 下面安装tmux配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/macosTmux/.tmux.conf -O .tmux.conf && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/macosTmux/.tmux.conf.local -O .tmux.conf.local")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/macos_tmux/.tmux.conf -O .tmux.conf && wget https://raw.githubusercontent.com/3xp10it/.tmux/master/macos_tmux/.tmux.conf.local -O .tmux.conf.local")
     if pur == '1':
         pass
     else:
         # 下面安装最新版本macvim
         html = requests.get("https://github.com/macvim-dev/macvim/releases/").text
         a = re.findall(r'''href="(.*\.dmg)"''', html, re.I)
-        macvimUrl = "https://github.com" + a[0]
-        os.system("wget %s -O /tmp/MacVim.dmg" % macvimUrl)
+        macvim_url = "https://github.com" + a[0]
+        os.system("wget %s -O /tmp/MacVim.dmg" % macvim_url)
         os.system("open /tmp/MacVim.dmg")
     # 下面安装vim配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc_MacVim -O .vimrc")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimrc__mac_vim -O .vimrc")
 
     if pur == '1':
         pass
@@ -127,7 +127,7 @@ elif re.search(r"darwin", sysinfo, re.I):
         os.system("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
         print("1.I have download vundle for you,you need run vim and :BundleInsall by yourself")
     # 下面安装vimperator配置
-    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimperatorrc_macOS -O .vimperatorrc")
+    os.system("cd && wget https://raw.githubusercontent.com/3xp10it/.vimrc/master/.vimperatorrc_mac_oS -O .vimperatorrc")
 
     if pur == '1':
         pass

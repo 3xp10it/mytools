@@ -33,8 +33,8 @@ lang2utf8='''
 echo y | apt-get install language-selector language-env language-pack-zh-hans
 echo y | apt-get install language-pack-zh-hans-base language-pack-zh-hant-base
 dpkg-reconfigure locales
-echo 'LANG="zh_CN.UTF-8"' > /etc/default/locale
-echo 'LANGUAGE="zh_CN:zh"' >> /etc/default/locale
+echo 'LANG="zh__cN.UTF-8"' > /etc/default/locale
+echo 'LANGUAGE="zh__cN:zh"' >> /etc/default/locale
 '''
 os.system(lang2utf8)
-os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/xPre.py -O xPre.py && python3 xPre.py")
+os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/x_pre.py -O x_pre.py && python3 x_pre.py")

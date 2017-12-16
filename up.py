@@ -1,6 +1,6 @@
 import os
-homePath=os.path.expanduser("~")
-if os.path.exists(homePath+'/myblog') is False and os.path.exists(homePath+'/3xp10it.github.io') is False:
+home_path=os.path.expanduser("~")
+if os.path.exists(home_path+'/myblog') is False and os.path.exists(home_path+'/3xp10it.github.io') is False:
     print "this is the first time you use me,I will download myblog from https://github.com/3xp10it/myblog.git"
     os.system("mkdir ~/myblog && cd ~/myblog && git init && git pull https://github.com/3xp10it/myblog.git && git remote add origin https://github.com/3xp10it/myblog.git")
     print "this is the first time you use me,I will download 3xp10it.github.io from https://github.com/3xp10it/3xp10it.github.io.git"
