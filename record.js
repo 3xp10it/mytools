@@ -2,15 +2,17 @@ if (ObjC.available)
 {
     try
     {
-        var className = "PARSUserInfo";
-        var funcName = "- mobilePhone";
+        var className = "xxx";
+        var funcName = "- xxx";
         var hook = eval('ObjC.classes.' + className + '["' + funcName + '"]');
+        console.log("[*] Class Name: " + className);
+        console.log("[*] Method Name: " + funcName);
         Interceptor.attach(hook.implementation, {
+          onEnter: function(args) {
+            console.log("param:"+args[0]+" type:"+typeof args[0]);
+          },
           onLeave: function(retval) {
-            console.log("[*] Class Name: " + className);
-            console.log("[*] Method Name: " + funcName);
-            console.log("\t[-] Type of return value: " + typeof retval);
-            console.log("\t[-] Return Value: " + retval);
+            console.log("retval:"+retval+" type:"+typeof retval);
           }
         });
     }
@@ -23,3 +25,4 @@ else
 {
     console.log("Objective-C Runtime is not available!");
 }
+
