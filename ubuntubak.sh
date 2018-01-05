@@ -19,7 +19,7 @@
 #系统备份脚本，备份产生两个文件,ubuntubak2.tgz为最新备份文件,ubuntubak1.tgz为上一次备份的文件
 # crontab -e like：
 # m h  dom mon dow   command
-#18  8    5 * *   root    bash /usr/share/mytools/ubuntubak.sh
+#18  8    5 * *   root    bash ~/mytools/ubuntubak.sh
 
 bakupdevice="/media/root/files"
 bakupfolder="/media/root/files/ubuntubak/"

@@ -19,7 +19,7 @@
 #macos系统备份脚本，备份产生两个文件,macosbak2.tgz为最新备份文件,macosbak1.tgz为上一次备份的文件
 # crontab -e like：
 # m h  dom mon dow   command
-#18  8    5 * *   root    bash /usr/share/mytools/macosbak.sh
+#18  8    5 * *   root    bash ~/mytools/macosbak.sh
 
 bakupdevice="/"
 bakupfolder="/macosbak/"
