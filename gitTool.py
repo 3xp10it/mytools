@@ -1,5 +1,5 @@
-# 每天第1次接触电脑时运行py3 git_tool.py --update
-# 每天第-1次接触电脑时运行py3 git_tool.py --commit
+# 每天第1次接触电脑时运行py3 GitTool.py --update
+# 每天第-1次接触电脑时运行py3 GitTool.py --commit
 
 import sys
 import os
