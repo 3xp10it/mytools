@@ -37,4 +37,4 @@ echo 'LANG="zh__cN.UTF-8"' > /etc/default/locale
 echo 'LANGUAGE="zh__cN:zh"' >> /etc/default/locale
 '''
 os.system(lang2utf8)
-os.system("wget https://raw.githubusercontent.com/3xp10it/mytools/master/x_pre.py -O x_pre.py && python3 x_pre.py")
+os.system("wget --no-cache https://raw.githubusercontent.com/3xp10it/mytools/master/x_pre.py -O x_pre.py && python3 x_pre.py")

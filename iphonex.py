@@ -34,9 +34,9 @@ def buy_ipx():
         elif system_platform == 'Linux':
             os.system("echo y | apt-get install phantomjs")
         elif system_platform == 'Windows':
-            import wget
+            import wget --no-cache
             try:
-                wget.download(
+                wget --no-cache.download(
                     "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip", out="phantomjs.zip")
             except:
                 print(

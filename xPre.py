@@ -52,9 +52,9 @@ else:
 
 if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
     # 下面安装.zshrc配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_ubuntu -O .zshrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_ubuntu -O .zshrc")
     # 下面安装config.fish配置
-    os.system("wget https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
+    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
     if pur == '1':
         pass
     else:
@@ -63,7 +63,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         # 下面安装tmux
         os.system("echo y | apt-get install tmux")
     # 下面安装tmux配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.tmux/ubuntuTmux/.tmux.conf -O .tmux.conf && wget https://github.com/3xp10it/config/raw/master/.tmux/ubuntuTmux/.tmux.conf.local -O .tmux.conf.local")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.tmux/ubuntuTmux/.tmux.conf -O .tmux.conf && wget --no-cache https://github.com/3xp10it/config/raw/master/.tmux/ubuntuTmux/.tmux.conf.local -O .tmux.conf.local")
 
     if pur == "1":
         pass
@@ -71,7 +71,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         # 下面安装较新版本vim
         os.system("echo y | apt-get install software-properties-common && add-apt-repository ppa:jonathonf/vim && apt update && apt install vim")
     # 下面安装vim配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.vimrc/.vimrc_linux -O .vimrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.vimrc/.vimrc_linux -O .vimrc")
 
     if pur == '1':
         pass
@@ -80,7 +80,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         os.system("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
         input("1.I have download vundle for you,you need open a new terminal and run vim and :BundleInsall by yourself,then press any key")
     # 下面安装vimperator配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.vimrc/.vimperatorrc_linux -O .vimperatorrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.vimrc/.vimperatorrc_linux -O .vimperatorrc")
 
     if pur == '1':
         pass
@@ -88,14 +88,14 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         input("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself,then press any key")
 
     # 下面更新rime配置
-    os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/.config/ibus/rime/default.custom.yaml")
+    os.system("wget --no-cache https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/.config/ibus/rime/default.custom.yaml")
     input("如果安装了rime,此时需要重新部署rime,然后按任意键继续...")
 
 elif re.search(r"darwin", sysinfo, re.I):
     # 下面安装.zshrc配置文件
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_macOS -O .zshrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_macOS -O .zshrc")
     # 下面安装config.fish配置
-    os.system("wget https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
+    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
     if pur == '1':
         pass
     else:
@@ -103,11 +103,11 @@ elif re.search(r"darwin", sysinfo, re.I):
         html = requests.get("https://github.com/tmux/tmux/releases").text
         a = re.findall(r'''href="(.*\.tar.gz)"''', html, re.I)
         tmux_url = "https://github.com" + a[0]
-        os.system("wget %s -O /tmp/tmux.tar.gz" % tmux_url)
+        os.system("wget --no-cache %s -O /tmp/tmux.tar.gz" % tmux_url)
         os.system("cd /tmp && tar -xvzf tmux.tar.gz -C /tmp/tmux")
         os.system("cd /tmp/tmux && ./configure && make && make install && rm -r /tmp/tmux && rm /tmp/tmux.tar.gz")
     # 下面安装tmux配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.tmux/macosTmux/.tmux.conf -O .tmux.conf && wget https://github.com/3xp10it/config/raw/master/.tmux/macosTmux/.tmux.conf.local -O .tmux.conf.local")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.tmux/macosTmux/.tmux.conf -O .tmux.conf && wget --no-cache https://github.com/3xp10it/config/raw/master/.tmux/macosTmux/.tmux.conf.local -O .tmux.conf.local")
     if pur == '1':
         pass
     else:
@@ -115,10 +115,10 @@ elif re.search(r"darwin", sysinfo, re.I):
         html = requests.get("https://github.com/macvim-dev/macvim/releases/").text
         a = re.findall(r'''href="(.*\.dmg)"''', html, re.I)
         macvim_url = "https://github.com" + a[0]
-        os.system("wget %s -O /tmp/MacVim.dmg" % macvim_url)
+        os.system("wget --no-cache %s -O /tmp/MacVim.dmg" % macvim_url)
         os.system("open /tmp/MacVim.dmg")
     # 下面安装vim配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.vimrc/.vimrc_MacVim -O .vimrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.vimrc/.vimrc_MacVim -O .vimrc")
 
     if pur == '1':
         pass
@@ -127,7 +127,7 @@ elif re.search(r"darwin", sysinfo, re.I):
         os.system("git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim")
         print("1.I have download vundle for you,you need run vim and :BundleInsall by yourself")
     # 下面安装vimperator配置
-    os.system("cd && wget https://github.com/3xp10it/config/raw/master/.vimrc/.vimperatorrc_macOS -O .vimperatorrc")
+    os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.vimrc/.vimperatorrc_macOS -O .vimperatorrc")
 
     if pur == '1':
         pass
@@ -135,7 +135,7 @@ elif re.search(r"darwin", sysinfo, re.I):
         input("2.I have download vimperatorrc for you,you need install vimperator in firefox by yourself,then press any key")
 
     # 下面更新squirrel配置
-    os.system("wget https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
+    os.system("wget --no-cache https://raw.githubusercontent.com/3xp10it/AutoIM/master/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
     input("如果安装了squirrel,此时需要重新部署squirrel,然后按任意键继续...")
 
 print("Congratulations! All your work has been finished:)")

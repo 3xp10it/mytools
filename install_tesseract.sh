@@ -26,7 +26,7 @@ sudo echo y | apt-get install libcairo2-dev
 export PATH=/usr/local/lib:$PATH
 
 #if leptonica update,should update the version
-wget http://www.leptonica.org/source/leptonica-1.73.tar.gz
+wget --no-cache http://www.leptonica.org/source/leptonica-1.73.tar.gz
 tar -zxvf leptonica-1.73.tar.gz
 cd leptonica-1.73
 ./configure
@@ -41,7 +41,7 @@ sudo LDFLAGS="-L/usr/local/lib" CFLAGS="-I/usr/local/include" make install
 sudo ldconfig
 
 #refer from http://stackoverflow.com/questions/14800730/tesseract-running-error
-wget https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
+wget --no-cache https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
 sudo mv -v eng.traineddata /usr/local/share/tessdata/
 
 #if you want use pytesser(google module,but not updated since 2007),below are needed,otherwise,till here,
@@ -53,7 +53,7 @@ sudo mv -v eng.traineddata /usr/local/share/tessdata/
 #暂时都将下面的执行吧
 
 pip install pytesseract
-wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+wget --no-cache http://effbot.org/downloads/Imaging-1.1.7.tar.gz
 tar -zxvf Imaging-1.1.7.tar.gz
 cd Imaging-1.1.7
 python setup.py install
