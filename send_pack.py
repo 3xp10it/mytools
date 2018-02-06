@@ -1,6 +1,6 @@
 import re
 from concurrent import futures
-from exp10it import send_http_package
+from exp10it import send_http_packet
 from urllib.parse import urlparse
 import sys
 package_file=sys.argv[1]
@@ -21,7 +21,7 @@ def send_single_package(each):
     host=parsed.netloc
     each_package=re.sub(r"(?<=Host: )(.+)",host,package,re.I)
     each_package=re.sub(r"(?<=Referer: )(.+)",each,each_package,re.I)
-    a=send_http_package(each_package,each.split(":")[0])
+    a=send_http_packet(each_package,each.split(":")[0])['html']
     print("%s return:\n%s\n\n" % (each,a))
     each_match_str=pattern.search(a).group(1)
     match_string_list.append(each_match_str)

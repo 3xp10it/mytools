@@ -3,7 +3,7 @@
 #python3 xxx.py 包文件 目标列表文件 返回内容中存在漏洞的正则表达式
 import re
 from concurrent import futures
-from exp10it import send_http_package
+from exp10it import send_http_packet
 from urllib.parse import urlparse
 import sys
 package_file=sys.argv[1]
@@ -23,7 +23,7 @@ def send_single_package(each):
     host=parsed.netloc
     each_package=re.sub(r"(?<=Host: )(.+)",host,package,re.I)
     each_package=re.sub(r"(?<=Referer: )(.+)",each,each_package,re.I)
-    a=send_http_package(each_package,each.split(":")[0])
+    a=send_http_packet(each_package,each.split(":")[0])['html']
     if pattern.search(a):
         print("%s 漏洞存在" % each)
 
