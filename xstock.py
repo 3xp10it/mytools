@@ -1,8 +1,12 @@
+from __future__ import print_function
+from drawille import Canvas
+from math import sin, radians
 import pdb
 import os
 import time
 import re
 import requests
+from collections import deque
 from exp10it import get_string_from_command
 from exp10it import CLIOutput
 output = CLIOutput()
@@ -19,10 +23,13 @@ page.open('http://so.hexun.com/default.do?type=stock&key=601318', function(statu
 if not os.path.exists("/tmp/xstock.js"):
     with open("/tmp/xstock.js", "a+") as f:
         f.write(phantom_js)
+c = Canvas()
+x = 0
+price_list = deque([])
 while True:
     html = get_string_from_command("phantomjs /tmp/xstock.js")
     find_price = re.search(r'''01318aprice[^\d\.]+([\d\.]+)''', html)
-    find_change = re.search(r'''01318achange[^\d\.]+([\d\.]+)''', html)
+    find_change = re.search(r'''01318achange.+>([^<>\s]+)<''', html)
     price = "null"
     change = "null"
     color = "green"
@@ -36,5 +43,17 @@ while True:
         price = find_price.group(1)
     else:
         print("0ps,can't find price")
-    output.good_print(price+"    "+change,color)
+    output.good_print(str(x/10)+"    "+price + "    " + change, color)
+    # show 200 count=3minutes--4minutes
+    if x / 10 > 200:
+        price_list.append(price)
+        price_list.popleft()
+    else:
+        price_list.append(price)
+    x += 10
+    for i in range(0, 3600):
+        c.set(i, (10 * float(price_list[i]) - 700) * 10)
+        if len(price_list)<3600 and i==len(price_list)-1:
+            break
+    output.good_print(c.frame(), color)
     time.sleep(1)
