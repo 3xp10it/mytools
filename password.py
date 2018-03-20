@@ -1,5 +1,6 @@
 import os
-with open(os.path.expanduser("~") + "/.password", "r+") as f:
+config = os.path.expanduser("~") + "/.password"
+with open(config, "r+") as f:
     _ = eval(f.read())
 filename = _['file']
 password = _['pass']
