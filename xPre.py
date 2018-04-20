@@ -38,6 +38,7 @@ else:
     # 下面设置fish为默认shell
     if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
         os.system("echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_9.0/ /' > /etc/apt/sources.list.d/fish.list ")
+        os.system("wget -nv https://download.opensuse.org/repositories/shells:fish:release:2/Debian_9.0/Release.key -O Release.key && apt-key add - < Release.key")
         os.system("echo y | apt-get update")
         os.system("echo y | apt-get install fish")
     elif re.search(r"darwin",sysinfo,re.I):
@@ -54,7 +55,7 @@ if re.search(r"(debian)|(ubuntu)", sysinfo, re.I):
     # 下面安装.zshrc配置
     os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_ubuntu -O .zshrc")
     # 下面安装config.fish配置
-    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
+    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish_ubuntu -O ~/.config/fish/config.fish")
     if pur == '1':
         pass
     else:
