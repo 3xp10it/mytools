@@ -96,7 +96,7 @@ elif re.search(r"darwin", sysinfo, re.I):
     # 下面安装.zshrc配置文件
     os.system("cd && wget --no-cache https://github.com/3xp10it/config/raw/master/.zshrc/.zshrc_macOS -O .zshrc")
     # 下面安装config.fish配置
-    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish -O ~/.config/fish/config.fish")
+    os.system("wget --no-cache https://github.com/3xp10it/config/raw/master/config.fish/config.fish_macOS -O ~/.config/fish/config.fish")
     if pur == '1':
         pass
     else:
