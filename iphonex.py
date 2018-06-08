@@ -29,11 +29,11 @@ def buy_ipx():
     from selenium.common.exceptions import TimeoutException
     result = get_string_from_command("phantomjs --help")
     if re.search(r"(not found)|(不是内部或外部命令)|(Unknown command)", result,re.I):
-        if system_platform == "Darwin":
+        if platform.system() == "Darwin":
             os.system("brew install phantomjs")
-        elif system_platform == 'Linux':
+        elif platform.system() == 'Linux':
             os.system("echo y | apt-get install phantomjs")
-        elif system_platform == 'Windows':
+        elif platform.system() == 'Windows':
             import wget --no-cache
             try:
                 wget --no-cache.download(
