@@ -1,12 +1,17 @@
 import os
 import re
 import requests
-from exp10it import get_string_from_command
+import subprocess
+def get_string_from_command(command):
+    # 不能执行which nihao,这样不会有输出,可nihao得到输出
+    # 执行成功的命令有正常输出,执行不成功的命令得不到输出,得到输出为"",eg.command=which nihao
+    # 判断程序有没有已经安装可eg.get_string_from_command("sqlmap --help")
+    return subprocess.getstatusoutput(command)[1]
+
 a=get_string_from_command("pip3")
 if re.search(r"(未找到命令)|(command not found)",a,re.I):
     os.system("apt-get install python3-pip")
 os.system("pip3 install exp10it -U")
-from exp10it import get_request
 sysinfo = get_string_from_command("uname -a")
 
 # 安装git,为了后面能安装vundle
