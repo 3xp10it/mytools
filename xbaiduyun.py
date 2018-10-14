@@ -1,4 +1,5 @@
 import pdb
+import random
 import platform
 import argparse
 import os
@@ -37,7 +38,8 @@ filelist=get_all_abs_path_file_name(source_dir,[])
 for abs_file_path in filelist:
     source_file_abs_path=abs_file_path
     filename=source_file_abs_path.split("/")[-1]
-    output_file_abs_path=output_dir+"/"+filename
-    cmd='''cp "%s" "%s" && echo niaho >> "%s"''' % (source_file_abs_path,output_file_abs_path,output_file_abs_path)
+    random_num_string=str(random.random()).split(".")[1]
+    output_file_abs_path=output_dir+"/"+filename[:-len(filename.split(".")[-1])-1]+random_num_string+"."+filename.split(".")[-1]
+    cmd='''cp "%s" "%s" && echo %s >> "%s"''' % (source_file_abs_path,output_file_abs_path,random_num_string,output_file_abs_path)
     os.system(cmd)
 print("finished:)")
