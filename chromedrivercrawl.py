@@ -16,6 +16,7 @@ def get_one_page_values(html):
         _=re.search(r"(\d+)</a>.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<.+?>([^\s<>]+?)<",item)
         return_item=[]
         return_item.append(_[1])
+        return_item.append(_[2])
         return_item.append(_[9])
         return_item.append(_[10])
         one_page_values.append(return_item)
@@ -57,5 +58,5 @@ if os.path.exists("qiquan_result.txt"):
 with open("qiquan_result.txt","a+") as f:
     for each in return_value:
         for _ in each:
-            f.write(_[0]+"    "+_[1]+"    "+_[2]+"\r\n")
+            f.write(_[0]+"    "+_[1]+"    "+_[2]+"    "+_[3]+"\r\n")
 
