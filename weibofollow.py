@@ -52,7 +52,7 @@ def get_keyword_target_users(keyword_list):
                 fans=each[1]
                 if '万' in fans:
                     fans=re.search(r"(\d+)万",fans).group(1)
-                    if 150<=int(fans)<=200:
+                    if 100<=int(fans)<=150:
                         to_follow_list.append(user_link)
             time.sleep(1)
             next_page='not find'
@@ -74,7 +74,8 @@ def get_keyword_target_users(keyword_list):
             os.system("say 关注成功")
     driver.quit()
 
-keyword_list=['财经' ,'投资','投机','股票','炒股','金融','操盘','私募','公募','经济','资产','博弈','理财','证券','财富','股评','衍生品']
+#keyword_list=['财经' ,'投资','投机','股票','炒股','金融','操盘','私募','公募','经济','资产','博弈','理财','证券','财富','股评','衍生品']
+keyword_list=['衍生品']
 get_keyword_target_users(keyword_list)
 html=driver.page_source
 print("finished")
