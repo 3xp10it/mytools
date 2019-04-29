@@ -1,7 +1,9 @@
 import re
 import os
 import pdb
-nmap_scan_cmd='nmap -T4 -A -v -Pn 192.168.1.1/24 -p 21,22,23,25,80,443,445,1433,3306,3389,3690,5900,8080 -oN nmap_result.txt'
+input("please generate two files: `users.lst` and `pass.lst` in current directory for brute scan,press any key to continue where it's ready...")
+ip_range=input("please input your ip scan range in nmap format\n:>")
+nmap_scan_cmd='nmap -T4 -A -v -Pn %s -p 21,22,23,25,80,443,445,1433,3306,3389,3690,5900,8080 -oN nmap_result.txt' % ip_range
 print("executing `%s`" % nmap_scan_cmd)
 os.system(nmap_scan_cmd)
 nmap_result_abspath="nmap_result.txt"
@@ -13,13 +15,16 @@ open_port_dict={}
 for port in port_list:
     if port not in open_port_dict:
         open_port_dict[port]=[]
-    all=re.findall(r"Nmap scan report for (\S+)\nHost is up.+\n(.+\n)*80/tcp\s+open.+\n(.+\n)*\n",nmap_result)
+    all=re.findall(r"Nmap scan report for (\S+)\nHost is up.+\n(.+\n)*%s/tcp\s+open.+\n(.+\n)*\n" % port,nmap_result)
     for item in all:
         ip=item[0]
         if ip not in open_port_dict[port]:
             open_port_dict[port].append(ip)
-with open("open_port_dict.txt","a+") as f:
-    f.write(str(open_port_dict))
+for port in open_port_dict:
+    ip_list=open_port_dict[port]
+    for ip in ip_list:
+        with open("%s.txt" % port,"a+") as f:
+            f.write(ip+"\n")
 nmap_cmd_list=[
         'nmap -T insane --script ftp-brute.nse -p 21 -iL 21.txt -oN ftp-brute.txt -v',
         'nmap -T insane --script ssh-brute.nse --script-args userdb=users.lst,passdb=pass.lst -p 22 -iL 22.txt -oN ssh-brute.txt -v',
@@ -36,6 +41,6 @@ nmap_cmd_list=[
         'nmap -T insane --script vnc-brute.nse -p 5900 -iL 5900.txt -oN vnc-bute.txt -v'
         ]
 for cmd in nmap_cmd_list:
-    print("executing `%s`" % cmd)
+    print("\nexecuting `%s`\n" % cmd)
     os.system(cmd)
 print("finished.")
