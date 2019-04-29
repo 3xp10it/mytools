@@ -15,7 +15,7 @@ open_port_dict={}
 for port in port_list:
     if port not in open_port_dict:
         open_port_dict[port]=[]
-    all=re.findall(r"Nmap scan report for (\S+)\nHost is up.+\n(.+\n)*%s/tcp\s+open.+\n(.+\n)*\n" % port,nmap_result)
+    all=re.findall(r"Nmap scan report for (\S+)\nHost is up.+\n+(.+\n)*%s/tcp\s+open.+\n(.+\n)*\n" % port,nmap_result)
     for item in all:
         ip=item[0]
         if ip not in open_port_dict[port]:
