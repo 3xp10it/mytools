@@ -3,7 +3,8 @@ import os
 import pdb
 input("please generate two files: `users.lst` and `pass.lst` in current directory for brute scan,press any key to continue where it's ready...")
 ip_range=input("please input your ip scan range in nmap format\n:>")
-nmap_scan_cmd='nmap -T4 -A -v -Pn %s -p 21,22,23,25,80,443,445,1433,3306,3389,3690,5900,8080 -oN nmap_result.txt' % ip_range
+nmap_scan_cmd='nmap -T4 -A -v -Pn %s -p 21,22,23,25,80,81,82,83,88,110,143,443,445,512,513,514,1433,1521,2082,2083,2181,2601,2604,3128,3306,3389,3690,4848,5432,5900,5984,6379,7001,7002,8069,8080,8081,8086,8088,9200,9300,11211,10000,27017,27018,50000,50030,50070 -oN nmap_result.txt' % ip_range
+
 print("executing `%s`" % nmap_scan_cmd)
 os.system(nmap_scan_cmd)
 nmap_result_abspath="nmap_result.txt"
