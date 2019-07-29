@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.2
 // @description  tampermonkey plugin for auto send task to workers,support tree task
-// @author       caixinghua
+// @author       3xp10it
 // @match        http://172.24.180.18:8080/secure/Dashboard.jspa
 // @require      http://code.jquery.com/jquery-2.1.1.min.js
 // @require      https://greasyfork.org/scripts/5392-waitforkeyelements/code/WaitForKeyElements.js?version=115012

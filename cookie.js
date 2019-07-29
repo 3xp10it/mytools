@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  get cookie with keyboard shortcut:`alt+c`
-// @author       You
+// @author       3xp10it
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
