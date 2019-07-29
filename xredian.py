@@ -13,4 +13,3 @@ for stock in stock_list:
     str_to_write+=(stock+"\n")
 with open(tmp_file,"w+") as f:
     f.write(str_to_write)
-

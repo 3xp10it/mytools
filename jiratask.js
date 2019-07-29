@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         jira task
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  tampermonkey plugin for auto send task to workers
-// @author       You
+// @version      0.2
+// @description  tampermonkey plugin for auto send task to workers,support tree task
+// @author       caixinghua
 // @match        http://172.24.180.18:8080/secure/Dashboard.jspa
 // @require      http://code.jquery.com/jquery-2.1.1.min.js
 // @require      https://greasyfork.org/scripts/5392-waitforkeyelements/code/WaitForKeyElements.js?version=115012
@@ -44,7 +44,11 @@ function worker() {
     while (m = tr.exec(framehtml)) {
         var issueitemhtml=m[1];
         var issueid=m[2];
-        var keyvaluereg=eval("/"+'<tr id="'+issueid+'"[\\s\\S]+?<td class="summary"[\\s\\S]+?href="(.+)">(.+)<[\\s\\S]+?>安全测试<'+"/g");
+        // attention:
+        // [\s\S] -> [\\s\\S]
+        // </a> -> <\/a> -> <\\\/a>
+        var pattern_value="/"+'<tr id="'+issueid+'"[\\s\\S]+?<td class="summary"[\\s\\S]+?<a class="issue-link".*?href="(.+?)">(.+?)<\\\/a>[\\s\\S]+?((安全测试)|(待处理)|(处理中))'+"/g";
+        var keyvaluereg=eval(pattern_value);
         var n;
         while (n = keyvaluereg.exec(issueitemhtml)) {
             var link=n[1];
@@ -58,7 +62,7 @@ function worker() {
                 //alert(baogaoren);
                 //alert(details);
                 $.ajax({
-                    url: "http://python script server which will write job record to database:8888/",
+                    url: "http://172.24.150.177:8888/",
                     type: "get",
                     crossDomain: true,
                     dataType: 'jsonp',
