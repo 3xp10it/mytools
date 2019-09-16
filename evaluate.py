@@ -5,6 +5,9 @@ today_date=get_today_date()
 print("记录交易日所在日期:%s" % today_date)
 stock_code=input("please input your stock code in 6 nuber:\n")
 a=ts.get_hist_data(stock_code,start=today_date,end=today_date)
+if len(a)==0:
+    latest_trade_date=input("当天不是交易日,请输入最近一个交易日日期:\n")
+    a=ts.get_hist_data(stock_code,start=latest_trade_date,end=latest_trade_date)
 choose=input("buy or sell? default [1]\n1.buy\n2.sell\n:>")
 if choose=='2':
     sell=float(input("please input your sell price:\n"))
