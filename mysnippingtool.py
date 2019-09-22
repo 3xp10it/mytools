@@ -60,7 +60,7 @@ def main():
         os.system("rm %s" % address_path)
         with open(address_path,"a+") as f:
             for each in all_png_list:
-                if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)|(pdf)$",each,re.I):
+                if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)|(pdf)|(mp4)$",each,re.I):
                     each="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                     f.write(each+"\r\n")
         return
@@ -88,7 +88,7 @@ def main():
                 each_addr="https://raw.githubusercontent.com/3xp10it/pic/master/%s" % each
                 #下面发现从ubuntu到macOS下居然会将\r\n变成\n,于是要写成下面这样
                 if each_addr+'\r\n' not in all and each_addr not in all and each_addr+"\n" not in all:
-                    if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)|(pdf)$",each_addr,re.I):
+                    if re.search(r"\.(png)|(jpg)|(gif)|(jpeg)|(ico)|(bmp)|(pdf)|(svg)|(pdf)|(mp4)$",each_addr,re.I):
                         print(each_addr)
                         f.write(each_addr+'\r\n')
                         f.close()
