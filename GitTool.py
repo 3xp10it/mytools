@@ -4,7 +4,7 @@
 import sys
 import os
 dir_list = ["~/myblog/", "~/3xp10it.github.io/",
-            "~/exp10it/", "~/mytools/", "~/pic/", "~/note", "~/xag"]
+            "~/exp10it/", "~/mytools/", "~/note", "~/xag"]
 if sys.argv[1] == "--update":
     for each_dir in dir_list:
         os.system("cd %s && git pull" % each_dir)
