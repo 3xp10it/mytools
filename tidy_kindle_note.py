@@ -8,7 +8,10 @@ for line in lines_to_tidy:
     if re.match(r"^\s+$",line):
         pass
     else:
-        _lines_to_tidy.append(line)
+        if len(line)<5:
+            pass
+        else:
+            _lines_to_tidy.append(line)
 
 def tidy_all_lines(lines):
     if len(lines) in [0,1]:
