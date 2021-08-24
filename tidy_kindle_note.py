@@ -29,7 +29,7 @@ def tidy_all_lines(lines):
             return [_1]+_2
 
 new_lines=tidy_all_lines(_lines_to_tidy)
-with open("/tmp/2","a+") as f:
+with open("/tmp/2","w+") as f:
     for line in new_lines:
         f.write("- "+line+"\n")
 
