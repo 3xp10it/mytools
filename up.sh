@@ -1,3 +1,7 @@
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
 if [ -d ~/myblog ] && [ -d ~/3xp10it.github.io ]
 then
     cd ~/myblog && cp index.html tmp.html && cp index_bak.html index.html && rm -r _site/ && jekyll serve --incremental --watch && cp _site/index.html index2.html && cp tmp.html index.html && echo -e "\033[31m congratulations! generate new _site content finished. \033[0m"
